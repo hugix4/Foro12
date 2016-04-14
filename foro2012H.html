@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<link href="Favicon.ico" type="image/x-icon" rel="shortcut icon" />
+<html>
+<HEAD>
+<link rel="stylesheet" type="text/css" href="foro2012.css">
+<TITLE>Coordinación General de Lenguas UNAM 3er Foro Mediatecas</TITLE>
+
+<script language="javascript" type="text/javascript">
+
+function vacio(cadena)
+  {                                    // DECLARACION DE CONSTANTES
+    var blanco = " \n\t" + String.fromCharCode(13); // blancos
+                                       // DECLARACION DE VARIABLES
+    var i;                             // indice en cadena
+    var es_vacio;                      // cadena es vacio o no
+    for(i = 0, es_vacio = true; (i < cadena.length) && es_vacio; i++) // INICIO
+      es_vacio = blanco.indexOf(cadena.charAt(i)) != - 1;
+    return(es_vacio);
+  }
+
+function comprobarRadio(radio)
+{
+  for(i = 0;i < radio.length;i++)
+  {
+    if(radio[i].checked)
+    {
+      return true;
+	  alert('Si esta checado');
+    }
+  }
+  return false;
+  alert('No checado');
+}
+
+function validaMail(mail) {  
+    var RegExPattern = /[\w-\.]{3,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/;  
+    var errorMessage = 'Mail Incorrecto';  
+    if ((mail.value.match(RegExPattern)) && (mail.value!='')) {  
+        alert('Mail Valido');
+    } else {  
+        alert(errorMessage);  
+        mail.focus();  
+    }   
+}    
+
+
+function ValidaCampos(form)
+  {
+   if(vacio(formOne.Nombre.value) || vacio(formOne.ApPat.value) || vacio(formOne.ApMat.value) || vacio(formOne.Plantel.value) || vacio(formOne.Turno.value) || vacio(formOne.Idioma.value)){
+      alert("Faltan Datos Generales");
+	  return false;
+	}
+	else{
+	alert("Datos generales ok");
+	return true;
+	}
+    //else if(!comprobarRadio(form.1))
+    //alert("Faltan preguntas =S ");  
+  }
+  
+  function cambia(){		
+			if (document.formOne.Dependencia[2].checked){				
+				document.formOne.Dependencia.value="";
+				document.formOne.Dependencia.disabled=true;
+			}
+			else{
+				document.formOne.Dependencia.disabled=false;
+				document.formOne.Dependencia.value="Introduzca su plantel";
+			}
+	}
+
+	function cambia2(){		
+			if (document.formOne.Puesto[4].checked){				
+				document.formOne.Puesto.value="";
+				document.formOne.Puesto.disabled=true;
+			}
+			else{
+				document.formOne.Puesto.disabled=false;
+				document.formOne.Puesto.value="Introduzca su puesto";
+			}
+	}
+	
+	
+</script>
+</HEAD>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<body>
+<form name="formOne" action="apgforo12.php" method="post" onSubmit="return ValidaCampos(this)">
+</br></br>
+<center>
+		<img src="images/HeaderUno.png" width="940" height="85" alt=""><!-- header image -->
+	</center>
+<div id="marco">			
+			<center>
+			<h3>3er FORO DE MEDIATECAS Y LABORATORIOS MULTIMEDIA DE IDIOMAS 2012</h3>
+			</center>
+			Formatos Disponibles</br>
+			&nbsp;<a href="docs/ConvocatoriaForo2012.pdf">Convocatoria</a>
+			</br>&nbsp;<a href="docs/FormatoRegistroTrabajos.doc">Formato para el registro de los trabajos</a>
+			</br>&nbsp;<a href="docs/FormatoTalleres.doc">Formato para los talleres</a> &nbsp;
+			<center>
+			</br>
+			Nombre(s):&nbsp;<input id="Nombre" type="text" name="Nombre" value=""/> &nbsp;&nbsp;Apellido Paterno:&nbsp;<input id="ApPat" type="text" name="ApPat" value=""/>&nbsp;&nbsp; Apellido Materno:&nbsp;<input id="ApMat" type="text" name="ApMat" value=""/>
+			</br>
+			</br>&nbsp;Dependencia:
+			<select name="Dependencia">
+				<option value="CCH Azcapotzalco">CCH Azcapotzalco</option>
+				<option value="CCH Naucalpan">CCH Naucalpan</option>
+				<option value="CCH Oriente">CCH Oriente</option>
+				<option value="CCH Sur">CCH Sur</option>
+				<option value="CCH Vallejo">CCH Vallejo</option>
+				<option value="ENP1">ENP 1</option>
+				<option value="ENP2">ENP 2</option>
+				<option value="ENP3">ENP 3</option>
+				<option value="ENP4">ENP 4</option>
+				<option value="ENP5">ENP 5</option>
+				<option value="ENP6">ENP 6</option>
+				<option value="ENP7">ENP 7</option>
+				<option value="ENP8">ENP 8</option>
+				<option value="ENP9">ENP 9</option>
+				<option value="Otro">Otro</option>
+			</select>			
+			&nbsp;Turno:
+			<select name="Turno">
+				<option value="Matutino">Matutino</option>
+				<option value="Vespertino">Vespertino</option>
+				<option value="Ambos">Ambos</option>			
+			</select>
+			&nbsp;Idioma(s):&nbsp;<input id="Idioma" type="text" name="Idioma" value=""/>
+			</br></br>&nbsp;Correo electrónico:&nbsp;<input id="Email" type="text" name="e-mail" value=""/>
+			</br>
+			</br>&nbsp;Participación en foro:
+			<select name="Participacion">
+				<option value="Asistente">Asistente</option>
+				<option value="Ponente">Ponente</option>
+			</select>&nbsp;&nbsp;Puesto:
+			<select name="Puesto">
+				<option value="Asesor">Asesor</option>
+				<option value="Coordinador Med">Coordinador de Mediateca</option>
+				<option value="Coordinador Id/Col">Coordinador de Idioma/Colegio</option>
+				<option value="Profesor">Profesor</option>
+				<option value="Tecnico">Técnico</option>
+				<option value="Otro">Otro</option>
+			</select>
+			</br>
+			</br>&nbsp;Celular:<INPUT id="Telefono" type="text" name="Celular"/>&nbsp;&nbsp;Casa:<INPUT id="Telefono" type="text" name="Tel Casa"/>
+			</br></br>&nbsp;<input type="reset" name="reset" value="Borrar"/>
+			&nbsp;<input type="submit" name="Terminar" value="Enviar" />
+			</br>
+			</br>
+			</center>
+		<!--<div id="fondo"/>-->	
+	</div>		
+	<!--<address id="firma">Desde el 15 de Marzo de 2011<br>
+Hugix</address>-->
+</form>
+</body>
+</html>

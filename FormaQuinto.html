@@ -1,0 +1,47 @@
+<HTML>
+<BODY bgcolor='#050a2f'>
+
+<style type='text/css'>
+h1 {
+	font-family:Century Gothic, sans-serif;
+	color: #b79d49}
+
+  p {
+	font-family:Century Gothic, sans-serif;
+	font-size:18px;
+    color: #b79d49;
+    }
+#Inst {
+	font-family:Century Gothic, sans-serif;
+	font-size:12px;
+    color: #b79d49;
+    }
+  </style>
+<h1>Coordinación General de Lenguas</h1>
+<FORM METHOD="post" ACTION="ConectaQuinto.php">
+
+<p>Plantel: <select name="numplantel" onchange="crear(this.value)">
+<option value="21">21</option>
+<option value="22">22</option>
+<option value="23">23</option>
+<option value="24">24</option>
+<option value="25">25</option>
+<option value="26">26</option>
+<option value="27">27</option>
+<option value="28">28</option>
+<option value="29">29</option>
+</select></p>
+<p id='Inst'>Aseguresé de que se digita bien el grupo, no utilice guiones o espacios </br>Ejemplos:</br>Incorrecto: Grupo: 599 A, 599-B X</br>Correcto: 599A </p>
+<p>Grupo: <input type="text" name="grupo" size="5"></p>
+
+<p>RFC: <input type="text" name="rfc" size="30"></p>
+
+<p><input type="submit" value="Ver calificaciones" name="enviar"> 
+
+<input type="reset" value="Limpiar" name="B2"></p>
+
+</FORM>
+
+</BODY>
+
+</HTML> 

@@ -1,0 +1,128 @@
+<html>
+<HEAD>
+<link rel="stylesheet" type="text/css" href="Foro.css">
+<TITLE>Coordinación General de Lenguas UNAM</TITLE>
+
+<script language="javascript" type="text/javascript">
+
+function vacio(cadena)
+  {                                    // DECLARACION DE CONSTANTES
+    var blanco = " \n\t" + String.fromCharCode(13); // blancos
+                                       // DECLARACION DE VARIABLES
+    var i;                             // indice en cadena
+    var es_vacio;                      // cadena es vacio o no
+    for(i = 0, es_vacio = true; (i < cadena.length) && es_vacio; i++) // INICIO
+      es_vacio = blanco.indexOf(cadena.charAt(i)) != - 1;
+    return(es_vacio);
+  }
+
+function comprobarRadio(radio)
+{
+  for(i = 0;i < radio.length;i++)
+  {
+    if(radio[i].checked)
+    {
+      return true;
+	  alert('Si esta checado');
+    }
+  }
+  return false;
+  alert('No checado');
+}
+
+function validaMail(mail) {  
+    var RegExPattern = /[\w-\.]{3,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/;  
+    var errorMessage = 'Mail Incorrecto';  
+    if ((mail.value.match(RegExPattern)) && (mail.value!='')) {  
+        alert('Mail Valido');
+    } else {  
+        alert(errorMessage);  
+        mail.focus();  
+    }   
+}    
+
+
+function ValidaCampos(form)
+  {
+   if(vacio(formOne.Nombre.value) || vacio(formOne.ApPat.value) || vacio(formOne.ApMat.value) || vacio(formOne.Plantel.value) || vacio(formOne.Turno.value) || vacio(formOne.Idioma.value)){
+      alert("Faltan Datos Generales");
+	  return false;
+	}
+	else{
+	alert("Datos generales ok");
+	return true;
+	}
+    //else if(!comprobarRadio(form.1))
+    //alert("Faltan preguntas =S ");  
+  }
+  
+  function cambia(){		
+			if (document.formOne.Dependencia[2].checked){				
+				document.formOne.DependenciaO.value="";
+				document.formOne.DependenciaO.disabled=false;
+			}
+			else{
+				document.formOne.DependenciaO.disabled=true;
+				document.formOne.DependenciaO.value="Introduzca su plantel";
+			}
+	}
+
+	function cambia2(){		
+			if (document.formOne.Puesto[4].checked){				
+				document.formOne.PuestoO.value="";
+				document.formOne.PuestoO.disabled=false;
+			}
+			else{
+				document.formOne.PuestoO.disabled=true;
+				document.formOne.PuestoO.value="Introduzca su puesto";
+			}
+	}
+	
+	
+</script>
+</HEAD>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<body>
+<form name="formOne" action="apgform1.7.php" method="post" onSubmit="return ValidaCampos(this)">
+<div id="marco">
+		<div align="center"><h1>Coordinación General de Lenguas</h1></div>
+		<div id="esquina"/>	
+		<div id="titulo"/>	
+			<div align='center'>UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO
+			</br>SECRETARÍA GENERAL			
+			</br>COORDINACIÓN GENERAL DE LENGUAS
+			</br>
+			</br>2º FORO DE MEDIATECAS Y LABORATORIOS MULTIMEDIA DEL BACHILLERATO DE LA UNAM
+			</br>
+			</br>Nombre(s):&nbsp;<input id="Nombre" type="text" name="Nombre" value=""/> &nbsp;&nbsp;Apellido Paterno:&nbsp;<input id="ApPat" type="text" name="ApPat" value=""/>&nbsp;&nbsp; Apellido Materno:&nbsp;<input id="ApMat" type="text" name="ApMat" value=""/></div>
+			</br>
+			</br>&nbsp;Dependencia:
+			</br>
+			</br>&nbsp;<INPUT id="Dependencia" type="radio" name="Dependencia" value="ENP" onclick="cambia()" >Escuela Nacional Preparatoria <INPUT id="Dependencia" type="radio" name="Dependencia" value="CCH" onclick="cambia()">Colegio de Ciencias y Humanidades			
+			</br>
+			</br>&nbsp;<INPUT id="Dependencia" type="radio" name="Dependencia" value="" onclick="cambia()">Otra &nbsp;¿Cual?:&nbsp;<input id="DependenciaO" type="text" name="DependenciaO" value="Introduzca su plantel" disabled='true'/>
+			</br>
+			</br>&nbsp;Plantel:&nbsp;<input id="Plantel" type="text" name="Plantel" value=""/>
+			</br>
+			</br>&nbsp;Turno:&nbsp;<input id="Turno" type="text" name="Turno" value=""/>
+			</br>
+			</br>&nbsp;Idioma:&nbsp;<input id="Idioma" type="text" name="Idioma" value=""/>
+			</br>
+			</br>&nbsp;Correo electrónico:&nbsp;<input id="Email" type="text" name="Email" value="" onblur="validaMail(this);"/>
+			</br>
+			</br>&nbsp;Su participación en el foro será como:</br>
+			</br>&nbsp;<INPUT id="Posicion" type="radio" name="Posicion" value="ENP">Participante<INPUT id="Posicion" type="radio" name="Posicion" value="CCH">Ponente <INPUT id="Posicion" type="radio" name="Posicion" value="Otro">Asistente			
+			</br>
+			</br>&nbsp;Su puesto es:</br>
+			</br>&nbsp;<INPUT id="Puesto" type="radio" name="Puesto" value="ENP" onclick="cambia2()">Profesor(a) <INPUT id="Puesto" type="radio" name="Puesto" value="CCH" onclick="cambia2()">Asesor(a) <INPUT id="Puesto" type="radio" name="Puesto" value="Coordinador" onclick="cambia2()">Coordinador(a) <INPUT id="Puesto" type="radio" name="Puesto" value="Otro" onclick="cambia2()">Técnico(a)
+			</br>
+			</br>&nbsp;<INPUT id="Puesto" type="radio" name="Puesto" value="" onclick="cambia2()">Otro &nbsp;¿Cual?:&nbsp;<input id="PuestoO" type="text" name="PuestoO" value="Introduzca su puesto" disabled='true'/>		
+			</br></br>&nbsp;<input type="reset" name="reset" value="Borrar"/>
+			&nbsp;<input type="submit" name="submit" value="Validar" />
+		<!--<div id="fondo"/>-->	
+	</div>		
+	<!--<address id="firma">Desde el 15 de Marzo de 2011<br>
+Hugix</address>-->
+</form>
+</body>
+</html>
